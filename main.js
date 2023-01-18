@@ -13,14 +13,19 @@ function run() {
         .then((json) => {
             // Adds movie titles to select element
             json.forEach(element => {
+                //create option element
                 const option = document.createElement("option");
+                //add title to option text
                 option.textContent = element.title;
                 option.setAttribute("value", element.id);
-                const titles = document.querySelector("#titles");
-                titles.append(option)
+                const select = document.querySelector("select");
+                select.append(option);
                 console.log(element.title);
             });// end adding movies to select element
-            
+
+            //This content should change each time the user choose a new option in the dropdown list.
+            // select.addEventListener
+
             console.log(json);
         })
         .catch((error) => {
