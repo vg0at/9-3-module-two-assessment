@@ -7,6 +7,7 @@
 // To ensure Cypress tests work as expeded, add any code/functions that you would like to run on page load inside this function
 
 function run() {
+    console.log(section)
  // Add code you want to run on page load here
 }
 
