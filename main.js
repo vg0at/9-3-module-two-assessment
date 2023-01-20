@@ -124,10 +124,14 @@ reviewSubmitButton.addEventListener("click", (event) => {
 } 
 
 })
+// when clicked should empty the ul where the reviews were being populated.
 const resetReviewsButton = document.querySelector("#reset-reviews");
 
 console.log(resetReviewsButton)
 resetReviewsButton.addEventListener("click", (event) => {
+const ul = document.querySelector("ul")
+ul.innerHTML = "";
+
 })
 // getTitle("2baf70d1-42bb-4437-b551-e5fed5a87abe")
 
