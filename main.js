@@ -143,6 +143,55 @@ const showPeopleButton = document.querySelector("button#show-people")
 console.log(showPeopleButton)
 showPeopleButton.addEventListener("click", (event) => {
   
+
+    let urlId = "";
+    const select = document.querySelector("select")
+    const h3 = document.querySelector("h3")
+for (const el of select) {
+    if (h3.innerText === el.value) {
+       urlId = el.id
+    //    console.log(urlId)
+} 
+}
+
+
+// I believe the reason the last test isn't passing is because of a scope issue I haven't figured out yet 
+
+//fetch("https://resource-ghibli-api.onrender.com/films/2baf70d1-42bb-4437-b551-e5fed5a87abe/people", requestOptions)
+//.then(response => response.text())
+//.then(result => console.log(result))
+//.catch(error => console.log('error', error));
+const ol = document.querySelector("ol")
+fetch(`https://resource-ghibli-api.onrender.com/films/${urlId}/people/`)
+.then((response) => response.json())
+.then((json) => {
+   for (const element of json) {
+    console.log(element)
+    const select = document.querySelector("select") 
+    const li = document.createElement("li");
+    li.textContent = element.name;
+    ol.append(li)
+    // for (const option of select) {
+
+    // }
+   
+   }
+
+
+   
+
+    // 
+    // for (let i = 0; i < json[0].length; i++) {
+    //     if (json[0[i]].id == urlId) {
+    //         return json[0[i]].id
+    //     }
+    //     //[0]
+    // }
+
+console.log(json.length)
+    
+}).catch(error => console.log(error))
+
 }) 
 
 
